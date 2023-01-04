@@ -1,0 +1,48 @@
+The ``0-add_integer`` module
+====================
+Using ``add_integer``
+--------------------
+Importing the functionfrom the module:
+	>>> add_integer = __import__('0-add_integer').add_integer
+
+checking for regular addition of ints:
+	>>> add_integer(1, 3)
+	4
+
+checking for dict:
+	>>> add_integer({'dic': 1}, -4)
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
+
+checking for float addition with int:
+	>>> add_integer(2.1, 4)
+	6
+
+checking for two float addition:
+	>>> add_integer(2.3, 4.5)
+	6
+
+checking for string as variable a and int:
+	>>> add_integer('text', 4)
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
+
+checking for int and string as variable b:
+	>>> add_integer(3, 'text')
+	Traceback (most recent call last):
+	...
+	TypeError: b must be an integer
+
+checking for stringas as a and b:
+	>>> add_integer('text', 'text')
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
+
+checking for empty variables passed as input:
+	>>> add_integer(variable, variable)
+	Traceback (most recent call last):
+	...
+	NameError: name 'variable' is not defined
