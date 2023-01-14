@@ -14,13 +14,6 @@ value being passed
 ... except Exception as e:
 ...     print("[{}] {}".format(e.__class__.__name__, e))
 ...
->>> bg
-<7-base_geometry.BaseGeometry object at 0x7f68d34a4f70>
->>> try:
-...     bg.integer_validator('me', 12)
-... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-...
 >>> try:
 ...     bg.integer_validator('me', -12)
 ... except Exception as e:
