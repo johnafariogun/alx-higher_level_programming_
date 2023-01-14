@@ -1,0 +1,48 @@
+==============
+Integer Validator
+==============
+
+This subclass creates a public method that determines the validity of a 
+value being passed
+
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg =BaseGeometry()
+>>> bg.integer_validator('mwe', 12)
+>>> try:
+...     bg.integer_validator('me', 12)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+...
+>>> bg
+<7-base_geometry.BaseGeometry object at 0x7f68d34a4f70>
+>>> try:
+...     bg.integer_validator('me', 12)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+...
+>>> try:
+...     bg.integer_validator('me', -12)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+...
+[ValueError] me must be greater than 0
+>>> try:
+...     bg.integer_validator('me', 0)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+...
+[ValueError] me must be greater than 0
+>>> try:
+...     bg.integer_validator('me', 'john')
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+...
+[TypeError] me must be an integer
+>>> try:
+...     bg.integer_validator(0, 'john')
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+...
+[TypeError] unsupported operand type(s) for +: 'int' and 'str'
+
