@@ -12,9 +12,9 @@ def pascal_triangle(n):
     if n <= 0:
         return []
 
-    tri  = [[1]]
+    tri = [[1]]
 
-    for i in range(1,n):
+    for i in range(1, n):
         line = [1]
         for j in range(1, i):
             line.append(tri[i-1][j-1] + tri[i-1][j])
