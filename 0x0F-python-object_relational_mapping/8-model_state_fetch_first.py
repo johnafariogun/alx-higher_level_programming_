@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
     lists all State objects from the database passed as argument
-    Usage: ./7-model_state_fetch_all.py <mysql username> \
+    Usage: ./8-model_state_fetch_fetch.py <mysql username> \
                                         <mysql password> \
                                         <database name>
 """
@@ -18,4 +18,7 @@ if __name__ == "__main__":
     session = Session()
 
     data = session.query(State).order_by(State.id).first()
-    print('{}: {}'.format(data.id, data.name))
+    if data:
+        print('{}: {}'.format(data.id, data.name))
+    else:
+        print("Nothing")
