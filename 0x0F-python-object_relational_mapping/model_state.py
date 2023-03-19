@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-this module declares a state class which inherits a Base instance to be mapped to a MySQL database table
+this module declares a state class which inherits a Base instance
+to be mapped to a MySQL database table
 """
 
 
