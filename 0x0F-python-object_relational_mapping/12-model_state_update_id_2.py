@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 """
-    lists State objects that have the name passed as argument
-    Usage: ./7-model_state_fetch_all.py <mysql username> \
+    updates a state object of id 2 from the database passed as argument
+    Usage: ./11-model_state_fetch_all.py <mysql username> \
                                         <mysql password> \
-                                        <database name> \
-                                        <state name>
+                                        <database name>
 """
 import sys
 from sqlalchemy import create_engine
@@ -17,7 +16,7 @@ if __name__ == "__main__":
                            pool_pre_ping=True)
     Session = sessionmaker(bind=engine)
     session = Session()
-    name = sys.argv[4]
 
-    state = session.query(State).filter_by(name=name).order_by(State.id).first()
-    print("{}".format(state.id))
+    state = session.query(State).filter_by(id=2).first()
+    state.name = "New Mexico"
+    session.commit()

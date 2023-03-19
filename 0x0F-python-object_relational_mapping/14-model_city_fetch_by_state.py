@@ -1,15 +1,15 @@
 #!/usr/bin/python3
 """
-    lists State objects that have the name passed as argument
-    Usage: ./7-model_state_fetch_all.py <mysql username> \
+    lists all city objects from the database passed as argument
+    Usage: ./13-model_state_delete_a.py <mysql username> \
                                         <mysql password> \
-                                        <database name> \
-                                        <state name>
+                                        <database name>
 """
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from model_state import State
+from model_city import City
 
 if __name__ == "__main__":
     engine = create_engine("mysql+mysqldb://{}:{}@localhost/{}"
@@ -17,7 +17,7 @@ if __name__ == "__main__":
                            pool_pre_ping=True)
     Session = sessionmaker(bind=engine)
     session = Session()
-    name = sys.argv[4]
-
-    state = session.query(State).filter_by(name=name).order_by(State.id).first()
-    print("{}".format(state.id))
+    for city, state in session.query(City, State) \
+                              .filter(City.state_id == State.id) \
+                              .order_by(City.id):
+        print("{}: ({}) {}".format(state.name, city.id, city.name))
