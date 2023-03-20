@@ -8,7 +8,6 @@ import MySQLdb
 if __name__ == "__main__":
     db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
     connect = db.cursor()
-    connect.execute("SELECT * FROM `states` WHERE `name` LIKE 'N%'\
-            ORDER BY `id`")
+    connect.execute("SELECT * FROM `states` ORDER BY `id`")
     states = connect.fetchall()
-    [print(state) for state in states]
+    [print(state) for state in states if state[1][0] == 'N']
