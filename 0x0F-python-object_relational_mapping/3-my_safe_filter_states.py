@@ -8,7 +8,7 @@ import MySQLdb
 if __name__ == "__main__":
     db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
     connect = db.cursor()
-    connect.execute("SELECT * FROM `citys` WHERE `name` = %s ORDER BY `id`",\
-            (sys.argv[4], ))
+    connect.execute("SELECT * FROM `citys` WHERE `name` = %s ORDER BY `id`",
+                    (sys.argv[4], ))
     states = connect.fetchall()
     [print(state) for state in states]
