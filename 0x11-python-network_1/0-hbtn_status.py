@@ -9,6 +9,7 @@ if __name__ == "__main__":
     request = req.Request(url)
     with req.urlopen(request) as response:
         body = response.read()
-        print("Body response\n\t- type: {}\n\t- content: {}\
-                \n\t- utf8 content: {}".format(type(body), body, body.decode(
-                    "utf-8")))
+        print("Body response:\n\t- type: {}\n\t- content: {}"
+              .format(type(body), body,))
+        print("\t- utf8 content: {}".format(body.decode(
+                      "utf-8")))
