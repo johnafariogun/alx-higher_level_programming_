@@ -8,4 +8,4 @@ url = "https://alx-intranet.hbtn.io/status"
 if __name__ == "__main__":
     request = req.get(url)
     print("Body response:\n\t- type: {}\n\t- content: {}"
-         .format(type(request.text), request.text))
+          .format(type(request.text), request.text))
